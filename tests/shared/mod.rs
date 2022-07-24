@@ -20,6 +20,10 @@ pub fn get_nu_help(app: &Command) -> io::Result<String> {
     use clap_completions::nu;
 
     fn build_nu_help<'a>(app: &'a Command<'_>, parent: &mut Vec<&'a str>) -> String {
+        if app.is_hide_set() {
+            return String::new();
+        }
+
         let mut buf = format!(
             "echo '〉help {0} {1}'; help {0} {1};\n",
             parent.join(" "),
@@ -39,15 +43,15 @@ pub fn get_nu_help(app: &Command) -> io::Result<String> {
 
     let out = process::Command::new("nu")
         .arg("-c")
-        .arg(program)
+        .arg(&program)
         .output()?;
 
     if out.status.success() {
         Ok(String::from_utf8(out.stdout).unwrap())
     } else {
-        Err(io::Error::new(
-            io::ErrorKind::Other,
-            format!("nu failed: {}", String::from_utf8(out.stderr).unwrap()),
-        ))
+        panic!(
+            "nu failed: {}",
+            program + &String::from_utf8(out.stderr).unwrap()
+        );
     }
 }

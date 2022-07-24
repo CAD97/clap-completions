@@ -3,7 +3,11 @@ source: tests/example_app_completions.rs
 expression: test!(sub_subcommands_command)
 ---
 def 'nu-complete my-app --choice' [] {
-  [ 'first', 'second', ]
+  [ "first", "second", ]
+}
+
+def 'nu-complete my-app some_cmd sub_cmd --config' [] {
+  [ "Lest quotes aren't escaped.", ]
 }
 
 # Tests completions

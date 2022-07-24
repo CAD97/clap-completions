@@ -65,6 +65,10 @@ fn write_nu_completes(
     f: &mut fmt::Formatter<'_>,
     name: FullCommandName<'_>,
 ) -> fmt::Result {
+    if app.is_hide_set() {
+        return Ok(());
+    }
+
     for arg in app.get_arguments() {
         if arg.is_hide_set() {
             continue;
@@ -82,12 +86,22 @@ fn write_nu_completes(
             writeln!(f, "def 'nu-complete {name} --{id}' [] {{")?;
             write!(f, "  [ ")?;
             for possible_value in possible_values {
-                write!(f, "'{}', ", possible_value.get_name())?;
+                write!(
+                    f,
+                    "\"{}\", ",
+                    possible_value.get_name().replace('\"', "\\\"")
+                )?;
             }
             writeln!(f, "]")?;
             writeln!(f, "}}")?;
             writeln!(f)?;
         }
+    }
+
+    for app in app.get_subcommands() {
+        let parent = Some(&name);
+        let name = app.get_name();
+        write_nu_completes(app, f, FullCommandName { name, parent })?;
     }
 
     Ok(())
@@ -98,6 +112,10 @@ fn write_export_externs(
     f: &mut fmt::Formatter<'_>,
     name: FullCommandName<'_>,
 ) -> fmt::Result {
+    if app.is_hide_set() {
+        return Ok(());
+    }
+
     if let Some(about) = app.get_about() {
         let about = about.split(['\r', '\n']).next().unwrap();
         writeln!(f, "# {about}")?;
@@ -117,10 +135,12 @@ fn write_export_externs(
         let value_hint = arg.get_value_hint();
         let required = arg.is_required_set();
         let takes_value = arg.is_takes_value_set();
+        let takes_many = arg.is_multiple_values_set();
 
         let value_matcher = arg.get_value_parser();
         let has_value_completion = value_matcher.possible_values().is_some();
 
+        let splat = if takes_many { "..." } else { "" };
         let nu_type = nu_value_hint(value_hint);
         let nu_type = if has_value_completion {
             format!("{nu_type}@'nu-complete {name} --{id}'")
@@ -150,7 +170,7 @@ fn write_export_externs(
                 writeln!(f, "  -{short} # {help}")?;
             }
             (None, None, _) => {
-                writeln!(f, "  {id}{nu_optional}: {nu_type} # {help}")?;
+                writeln!(f, "  {splat}{id}{nu_optional}: {nu_type} # {help}")?;
             }
         };
 

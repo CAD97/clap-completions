@@ -4,7 +4,7 @@ expression: "clap_completions::nu::Completions::new(&app)"
 ---
 # Add dependencies to a Cargo.toml manifest file
 export extern 'add' [
-  crates?: string # Reference to a package to add as a dependency
+  ...crates?: string # Reference to a package to add as a dependency
   --help # Print help information
   --version # Print version information
   --no-default-features # Disable the default features

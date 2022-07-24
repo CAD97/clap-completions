@@ -6,7 +6,7 @@ expression: help
 Add dependencies to a Cargo.toml manifest file
 
 Usage:
-  > add {flags} (crates) 
+  > add {flags} (...crates) 
 
 Flags:
   --help
@@ -53,7 +53,7 @@ Flags:
       Add as dependency to the given target platform
 
 Parameters:
-  (optional) crates <String>: Reference to a package to add as a dependency
+  (optional) ...crates <String>: Reference to a package to add as a dependency
 
 
 

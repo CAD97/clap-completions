@@ -1,0 +1,43 @@
+---
+source: tests/example_app_completions.rs
+expression: test!(value_hint_command)
+---
+〉help  my-app
+Usage:
+  > my-app {flags} (...command_with_args) 
+
+Flags:
+  --help
+      Print help information
+  --choice <Custom(String, 439)>
+      
+  --unknown <String>
+      
+  --other <Any>
+      
+  -p, --path <Filepath>
+      
+  -f, --file <Filepath>
+      
+  -d, --dir <Filepath>
+      
+  -e, --exe <Filepath>
+      
+  --cmd-name <String>
+      
+  -c, --cmd <String>
+      
+  -u, --user <String>
+      
+  -h, --host <String>
+      
+  --url <String>
+      
+  --email <String>
+      
+
+Parameters:
+  (optional) ...command_with_args <String>: 
+
+
+

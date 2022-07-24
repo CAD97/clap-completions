@@ -1001,5 +1001,5 @@ fn cargo_add() {
             ])
     ;
 
-    tests!("carg-add", app);
+    tests!("cargo-add", app);
 }

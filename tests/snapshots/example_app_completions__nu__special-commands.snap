@@ -3,7 +3,7 @@ source: tests/example_app_completions.rs
 expression: test!(special_commands_command)
 ---
 def 'nu-complete my-app --choice' [] {
-  [ 'first', 'second', ]
+  [ "first", "second", ]
 }
 
 # Tests completions
@@ -24,17 +24,12 @@ export extern 'my-app test' [
 
 # tests other things
 export extern 'my-app some_cmd' [
-  path?: string # 
+  ...path?: string # 
   --help(-h) # Print help information
   --version(-V) # Print version information
 ]
 
 export extern 'my-app some-cmd-with-hyphens' [
-  --help(-h) # Print help information
-  --version(-V) # Print version information
-]
-
-export extern 'my-app some-hidden-cmd' [
   --help(-h) # Print help information
   --version(-V) # Print version information
 ]

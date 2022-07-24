@@ -3,11 +3,11 @@ source: tests/example_app_completions.rs
 expression: test!(value_hint_command)
 ---
 def 'nu-complete my-app --choice' [] {
-  [ 'bash', 'fish', 'zsh', ]
+  [ "bash", "fish", "zsh", ]
 }
 
 export extern 'my-app' [
-  command_with_args?: string # 
+  ...command_with_args?: string # 
   --help # Print help information
   --choice: string@'nu-complete my-app --choice' # 
   --unknown: string # 

@@ -1,6 +1,6 @@
 ---
 source: tests/example_app_completions.rs
-expression: test!(special_commands_command)
+expression: test!(sub_subcommands_command)
 ---
 〉help  my-app
 Tests completions
@@ -10,8 +10,9 @@ Usage:
 
 Subcommands:
   my-app help - Print this message or the help of the given subcommand(s)
-  my-app some-cmd-with-hyphens - 
-  my-app some_cmd - tests other things
+  my-app some_cmd - top level subcommand
+  my-app some_cmd help - Print this message or the help of the given subcommand(s)
+  my-app some_cmd sub_cmd - sub-subcommand
   my-app test - tests things
 
 Flags:
@@ -43,30 +44,45 @@ Flags:
 
 
 〉help my-app some_cmd
-tests other things
+top level subcommand
 
 Usage:
-  > my-app some_cmd {flags} (...path) 
+  > my-app some_cmd {flags} 
+
+Subcommands:
+  my-app some_cmd help - Print this message or the help of the given subcommand(s)
+  my-app some_cmd sub_cmd - sub-subcommand
 
 Flags:
   -h, --help
       Print help information
   -V, --version
       Print version information
+
+
+〉help my-app some_cmd sub_cmd
+sub-subcommand
+
+Usage:
+  > my-app some_cmd sub_cmd {flags} 
+
+Flags:
+  --config <Custom(String, 440)>
+      the other case to test
+  -h, --help
+      Print help information
+  -V, --version
+      Print version information
+
+
+〉help my-app some_cmd help
+Print this message or the help of the given subcommand(s)
+
+Usage:
+  > my-app some_cmd help (subcommand) 
 
 Parameters:
-  (optional) ...path <String>: 
-
-
-〉help my-app some-cmd-with-hyphens
-Usage:
-  > my-app some-cmd-with-hyphens {flags} 
-
-Flags:
-  -h, --help
-      Print help information
-  -V, --version
-      Print version information
+  (optional) subcommand <String>: The subcommand whose help message to display
 
 
 〉help my-app help
