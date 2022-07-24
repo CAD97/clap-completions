@@ -1,0 +1,19 @@
+---
+source: tests/example_app_completions.rs
+expression: "help(&mut aliases_command(\"my-app\"))"
+---
+my-app 3.0
+testing bash completions
+
+USAGE:
+    my-app [OPTIONS] [positional]
+
+ARGS:
+    <positional>    
+
+OPTIONS:
+    -f, --flag               cmd flag [aliases: flg] [short aliases: F]
+    -h, --help               Print help information
+    -o, --option <option>    cmd option [aliases: opt] [short aliases: O]
+    -V, --version            Print version information
+

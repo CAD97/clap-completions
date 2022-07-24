@@ -1,0 +1,99 @@
+---
+source: tests/example_app_completions.rs
+expression: test!(quoting_command)
+---
+my-app 3.0
+
+USAGE:
+    my-app [OPTIONS] [SUBCOMMAND]
+
+OPTIONS:
+        --backslash        Avoid '\n'
+        --backticks        For more information see `echo test`
+        --brackets         List packages [filter]
+        --double-quotes    Can be "always", "auto", or "never"
+        --expansions       Execute the shell command with $SHELL
+    -h, --help             Print help information
+        --single-quotes    Can be 'always', 'auto', or 'never'
+    -V, --version          Print version information
+
+SUBCOMMANDS:
+    cmd-backslash        Avoid '\n'
+    cmd-backticks        For more information see `echo test`
+    cmd-brackets         List packages [filter]
+    cmd-double-quotes    Can be "always", "auto", or "never"
+    cmd-expansions       Execute the shell command with $SHELL
+    cmd-single-quotes    Can be 'always', 'auto', or 'never'
+    help                 Print this message or the help of the given subcommand(s)
+
+my-app-cmd-single-quotes 
+Can be 'always', 'auto', or 'never'
+
+USAGE:
+    my-app cmd-single-quotes
+
+OPTIONS:
+    -h, --help    Print help information
+
+
+my-app-cmd-double-quotes 
+Can be "always", "auto", or "never"
+
+USAGE:
+    my-app cmd-double-quotes
+
+OPTIONS:
+    -h, --help    Print help information
+
+
+my-app-cmd-backticks 
+For more information see `echo test`
+
+USAGE:
+    my-app cmd-backticks
+
+OPTIONS:
+    -h, --help    Print help information
+
+
+my-app-cmd-backslash 
+Avoid '\n'
+
+USAGE:
+    my-app cmd-backslash
+
+OPTIONS:
+    -h, --help    Print help information
+
+
+my-app-cmd-brackets 
+List packages [filter]
+
+USAGE:
+    my-app cmd-brackets
+
+OPTIONS:
+    -h, --help    Print help information
+
+
+my-app-cmd-expansions 
+Execute the shell command with $SHELL
+
+USAGE:
+    my-app cmd-expansions
+
+OPTIONS:
+    -h, --help    Print help information
+
+
+my-app-help 
+Print this message or the help of the given subcommand(s)
+
+USAGE:
+    my-app help [SUBCOMMAND]...
+
+ARGS:
+    <SUBCOMMAND>...    The subcommand whose help message to display
+
+
+

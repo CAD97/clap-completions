@@ -1,0 +1,28 @@
+---
+source: tests/example_app_completions.rs
+expression: "help(&mut value_hint_command(\"my-app\"))"
+---
+my-app 
+
+USAGE:
+    my-app [OPTIONS] [command_with_args]...
+
+ARGS:
+    <command_with_args>...    
+
+OPTIONS:
+    -c, --cmd <cmd>              
+        --choice <choice>        [possible values: bash, fish, zsh]
+        --cmd-name <cmd_name>    
+    -d, --dir <dir>              
+    -e, --exe <exe>              
+        --email <email>          
+    -f, --file <file>            
+    -h, --host <host>            
+        --help                   Print help information
+        --other <other>          
+    -p, --path <path>            
+    -u, --user <user>            
+        --unknown <unknown>      
+        --url <url>              
+

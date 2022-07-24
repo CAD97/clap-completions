@@ -1,0 +1,84 @@
+---
+source: tests/example_app_completions.rs
+expression: test!(sub_subcommands_command)
+---
+my-app 3.0
+Tests completions
+
+USAGE:
+    my-app [OPTIONS] [ARGS] [SUBCOMMAND]
+
+ARGS:
+    <file>      some input file
+    <choice>    [possible values: first, second]
+
+OPTIONS:
+    -c, --config     some config file [aliases: conf] [short aliases: C]
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    help        Print this message or the help of the given subcommand(s)
+    some_cmd    top level subcommand
+    test        tests things
+
+my-app-test 3.0
+tests things
+
+USAGE:
+    my-app test [OPTIONS]
+
+OPTIONS:
+        --case <case>    the case to test
+    -h, --help           Print help information
+    -V, --version        Print version information
+
+
+my-app-some_cmd 3.0
+top level subcommand
+
+USAGE:
+    my-app some_cmd [SUBCOMMAND]
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    help       Print this message or the help of the given subcommand(s)
+    sub_cmd    sub-subcommand
+
+my-app-some_cmd-sub_cmd 3.0
+sub-subcommand
+
+USAGE:
+    my-app some_cmd sub_cmd [OPTIONS]
+
+OPTIONS:
+        --config <config>    the other case to test [possible values: "Lest quotes aren't escaped."]
+    -h, --help               Print help information
+    -V, --version            Print version information
+
+
+my-app-some_cmd-help 
+Print this message or the help of the given subcommand(s)
+
+USAGE:
+    my-app some_cmd help [SUBCOMMAND]...
+
+ARGS:
+    <SUBCOMMAND>...    The subcommand whose help message to display
+
+
+
+my-app-help 
+Print this message or the help of the given subcommand(s)
+
+USAGE:
+    my-app help [SUBCOMMAND]...
+
+ARGS:
+    <SUBCOMMAND>...    The subcommand whose help message to display
+
+
+

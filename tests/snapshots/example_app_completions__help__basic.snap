@@ -1,0 +1,44 @@
+---
+source: tests/example_app_completions.rs
+expression: test!(basic_command)
+---
+my-app 
+
+USAGE:
+    my-app [OPTIONS] [SUBCOMMAND]
+
+OPTIONS:
+    -c            
+    -h, --help    Print help information
+    -v            
+
+SUBCOMMANDS:
+    help    Print this message or the help of the given subcommand(s)
+    test    Subcommand
+
+my-app-test 
+Subcommand
+
+USAGE:
+    my-app test [OPTIONS]
+
+OPTIONS:
+    -c            
+    -d            
+    -h, --help    Print help information
+
+
+my-app-help 
+Print this message or the help of the given subcommand(s)
+
+USAGE:
+    my-app help [OPTIONS] [SUBCOMMAND]...
+
+ARGS:
+    <SUBCOMMAND>...    The subcommand whose help message to display
+
+OPTIONS:
+    -c        
+
+
+

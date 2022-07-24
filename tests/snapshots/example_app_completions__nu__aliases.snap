@@ -1,0 +1,14 @@
+---
+source: tests/example_app_completions.rs
+expression: test!(aliases_command)
+---
+# testing bash completions
+export extern 'my-app' [
+  positional?: string # 
+  --help(-h) # Print help information
+  --version(-V) # Print version information
+  --flag(-f) # cmd flag
+  --option(-o): string # cmd option
+]
+
+

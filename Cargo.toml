@@ -1,0 +1,18 @@
+[package]
+name = "clap-completions"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.60.0"
+
+[features]
+default = ["std"]
+std = ["clap/std"]
+
+nu = []
+
+[dependencies]
+clap = { version = "3.2.14", default-features = false }
+
+[dev-dependencies]
+clap = { version = "3.2.14", features = [] }
+insta = "1.16.0"
