@@ -1,0 +1,94 @@
+---
+source: tests/example_app_completions.rs
+expression: test!(special_commands_command)
+---
+〉help  my-app
+Tests completions
+
+Usage:
+  > my-app {flags} (file) (choice) 
+
+Subcommands:
+  my-app help - Print this message or the help of the given subcommand(s)
+  my-app some-cmd-with-hyphens - 
+  my-app some-hidden-cmd - 
+  my-app some_cmd - tests other things
+  my-app test - tests things
+
+Flags:
+  -h, --help
+      Print help information
+  -V, --version
+      Print version information
+  -c, --config
+      some config file
+
+Parameters:
+  (optional) file <Filepath>: some input file
+  (optional) choice <String>: 
+
+
+〉help my-app test
+tests things
+
+Usage:
+  > my-app test {flags} 
+
+Flags:
+  --case <String>
+      the case to test
+  -h, --help
+      Print help information
+  -V, --version
+      Print version information
+
+
+〉help my-app some_cmd
+tests other things
+
+Usage:
+  > my-app some_cmd {flags} (path) 
+
+Flags:
+  -h, --help
+      Print help information
+  -V, --version
+      Print version information
+
+Parameters:
+  (optional) path <String>: 
+
+
+〉help my-app some-cmd-with-hyphens
+Usage:
+  > my-app some-cmd-with-hyphens {flags} 
+
+Flags:
+  -h, --help
+      Print help information
+  -V, --version
+      Print version information
+
+
+〉help my-app some-hidden-cmd
+Usage:
+  > my-app some-hidden-cmd {flags} 
+
+Flags:
+  -h, --help
+      Print help information
+  -V, --version
+      Print version information
+
+
+〉help my-app help
+Print this message or the help of the given subcommand(s)
+
+Usage:
+  > my-app help (subcommand) 
+
+Parameters:
+  (optional) subcommand <String>: The subcommand whose help message to display
+
+
+

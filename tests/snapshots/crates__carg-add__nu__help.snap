@@ -1,0 +1,59 @@
+---
+source: tests/crates.rs
+expression: help
+---
+〉help  add
+Add dependencies to a Cargo.toml manifest file
+
+Usage:
+  > add {flags} (crates) 
+
+Flags:
+  --help
+      Print help information
+  --version
+      Print version information
+  --no-default-features
+      Disable the default features
+  --default-features
+      Re-enable the default features
+  -F, --features <String>
+      Space or comma separated list of features to activate
+  --optional
+      Mark the dependency as optional
+  --no-optional
+      Mark the dependency as required
+  --rename <String>
+      Rename the dependency
+  --manifest-path <String>
+      Path to Cargo.toml
+  -p, --package <String>
+      Package to modify
+  -q, --quiet
+      Do not print cargo log messages
+  --dry-run
+      Don't actually write the manifest
+  --path <String>
+      Filesystem path to local crate to add
+  --git <String>
+      Git repository location
+  --branch <String>
+      Git branch to download the crate from
+  --tag <String>
+      Git tag to download the crate from
+  --rev <String>
+      Git reference to download the crate from
+  --registry <String>
+      Package registry for this dependency
+  --dev
+      Add as development dependency
+  --build
+      Add as build dependency
+  --target <String>
+      Add as dependency to the given target platform
+
+Parameters:
+  (optional) crates <String>: Reference to a package to add as a dependency
+
+
+

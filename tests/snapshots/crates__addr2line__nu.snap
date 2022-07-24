@@ -1,0 +1,21 @@
+---
+source: tests/crates.rs
+expression: "clap_completions::nu::Completions::new(&app)"
+---
+# A fast addr2line Rust port
+export extern 'addr2line' [
+  addrs?: string # Addresses to use instead of reading from stdin.
+  --help(-h) # Print help information
+  --version(-V) # Print version information
+  --exe(-e): string # Specify the name of the executable for which addresses should be translated.
+  --sup: string # Path to supplementary object file.
+  --functions(-f) # Display function names as well as file and line number information.
+  --pretty-print(-p) # Make the output more human friendly: each location are printed on one line.
+  --inlines(-i) # If the address belongs to a function that was inlined, the source information for all enclosing scopes back to the first non-inlined function will also be printed.
+  --addresses(-a) # Display the address before the function name, file and line number information.
+  --basenames(-s) # Display only the base of each file name.
+  --demangle(-C) # Demangle function names. Specifying a specific demangling style (like GNU addr2line) is not supported. (TODO)
+  --llvm # Display output in the same format as llvm-symbolizer.
+]
+
+

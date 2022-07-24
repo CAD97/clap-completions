@@ -1,0 +1,202 @@
+---
+source: tests/crates.rs
+expression: help
+---
+〉help  bindgen
+Generates Rust bindings from C/C++ headers.
+
+Usage:
+  > bindgen {flags} (header) (clang-args) 
+
+Flags:
+  --help
+      Print help information
+  --version
+      Print version information
+  --depfile <String>
+      Path to write depfile to
+  --default-enum-style <String>
+      The default style of code used to generate enums.
+  --bitfield-enum <String>
+      Mark any enum whose name matches <regex> as a set of bitfield flags.
+  --newtype-enum <String>
+      Mark any enum whose name matches <regex> as a newtype.
+  --rustified-enum <String>
+      Mark any enum whose name matches <regex> as a Rust enum.
+  --constified-enum <String>
+      Mark any enum whose name matches <regex> as a series of constants.
+  --constified-enum-module <String>
+      Mark any enum whose name matches <regex> as a module of constants.
+  --default-macro-constant-type <String>
+      The default signed/unsigned type for C macro constants.
+  --default-alias-style <String>
+      The default style of code used to generate typedefs.
+  --normal-alias <String>
+      Mark any typedef alias whose name matches <regex> to use normal type aliasing.
+  --new-type-alias <String>
+      Mark any typedef alias whose name matches <regex> to have a new type generated for it.
+  --new-type-alias-deref <String>
+      Mark any typedef alias whose name matches <regex> to have a new type with Deref and DerefMut to the inner type.
+  --blocklist-type <String>
+      Mark <type> as hidden.
+  --blocklist-function <String>
+      Mark <function> as hidden.
+  --blocklist-item <String>
+      Mark <item> as hidden.
+  --blocklist-file <String>
+      Mark all contents of <path> as hidden.
+  --no-layout-tests
+      Avoid generating layout tests for any type.
+  --no-derive-copy
+      Avoid deriving Copy on any type.
+  --no-derive-debug
+      Avoid deriving Debug on any type.
+  --impl-debug
+      Create Debug implementation, if it can not be derived automatically.
+  --impl-partialeq
+      Create PartialEq implementation, if it can not be derived automatically.
+  --with-derive-default
+      Derive Default on any type.
+  --with-derive-hash
+      Derive hash on any type.
+  --with-derive-partialeq
+      Derive partialeq on any type.
+  --with-derive-partialord
+      Derive partialord on any type.
+  --with-derive-eq
+      Derive eq on any type. Enable this option also enables --with-derive-partialeq
+  --with-derive-ord
+      Derive ord on any type. Enable this option also enables --with-derive-partialord
+  --no-doc-comments
+      Avoid including doc comments in the output, see: https://github.com/rust-lang/rust-bindgen/issues/426
+  --no-recursive-allowlist
+      Disable allowlisting types recursively. This will cause bindgen to emit Rust code that won't compile! See the `bindgen::Builder::allowlist_recursively` method's documentation for details.
+  --objc-extern-crate
+      Use extern crate instead of use for objc.
+  --generate-block
+      Generate block signatures instead of void pointers.
+  --block-extern-crate
+      Use extern crate instead of use for block.
+  --distrust-clang-mangling
+      Do not trust the libclang-provided mangling
+  --builtins
+      Output bindings for builtin definitions, e.g. __builtin_va_list.
+  --ctypes-prefix <String>
+      Use the given prefix before raw types instead of ::std::os::raw.
+  --anon-fields-prefix <String>
+      Use the given prefix for the anon fields.
+  --time-phases
+      Time the different bindgen phases and print to stderr
+  --emit-clang-ast
+      Output the Clang AST for debugging purposes.
+  --emit-ir
+      Output our internal IR for debugging purposes.
+  --emit-ir-graphviz <String>
+      Dump graphviz dot file.
+  --enable-cxx-namespaces
+      Enable support for C++ namespaces.
+  --disable-name-namespacing
+      Disable namespacing via mangling, causing bindgen to generate names like "Baz" instead of "foo_bar_Baz" for an input name "foo::bar::Baz".
+  --disable-nested-struct-naming
+      Disable nested struct naming, causing bindgen to generate names like "bar" instead of "foo_bar" for a nested definition "struct foo { struct bar { } b; };".
+  --disable-untagged-union
+      Disable support for native Rust unions.
+  --disable-header-comment
+      Suppress insertion of bindgen's version identifier into generated bindings.
+  --ignore-functions
+      Do not generate bindings for functions or methods. This is useful when you only care about struct layouts.
+  --generate <String>
+      Generate only given items, split by commas. Valid values are "functions","types", "vars", "methods", "constructors" and "destructors".
+  --ignore-methods
+      Do not generate bindings for methods.
+  --no-convert-floats
+      Do not automatically convert floats to f32/f64.
+  --no-prepend-enum-name
+      Do not prepend the enum name to constant or newtype variants.
+  --no-include-path-detection
+      Do not try to detect default include paths
+  --fit-macro-constant-types
+      Try to fit macro constants into types smaller than u32/i32
+  --unstable-rust
+      Generate unstable Rust code (deprecated; use --rust-target instead).
+  --opaque-type <String>
+      Mark <type> as opaque.
+  -o, --output <String>
+      Write Rust bindings to <output>.
+  --raw-line <String>
+      Add a raw line of Rust code at the beginning of output.
+  --module-raw-line <String>
+      Add a raw line of Rust code to a given module.
+  --rust-target <String>
+      Version of the Rust compiler to target. Valid options are: ["1.0", "1.17", "1.19", "1.20", "1.21", "1.25", "1.26", "1.27", "1.28", "1.30", "1.33", "1.36", "1.40", "1.47"]. Defaults to "1.47".
+  --use-core
+      Use types from Rust core instead of std.
+  --conservative-inline-namespaces
+      Conservatively generate inline namespaces to avoid name conflicts.
+  --use-msvc-mangling
+      MSVC C++ ABI mangling. DEPRECATED: Has no effect.
+  --allowlist-function <String>
+      Allowlist all the free-standing functions matching <regex>. Other non-allowlisted functions will not be generated.
+  --generate-inline-functions
+      Generate inline functions.
+  --allowlist-type <String>
+      Only generate types matching <regex>. Other non-allowlisted types will not be generated.
+  --allowlist-var <String>
+      Allowlist all the free-standing variables matching <regex>. Other non-allowlisted variables will not be generated.
+  --allowlist-file <String>
+      Allowlist all contents of <path>.
+  --verbose
+      Print verbose error messages.
+  --dump-preprocessed-input
+      Preprocess and dump the input header files to disk. Useful when debugging bindgen, using C-Reduce, or when filing issues. The resulting file will be named something like `__bindgen.i` or `__bindgen.ii`.
+  --no-record-matches
+      Do not record matching items in the regex sets. This disables reporting of unused items.
+  --size_t-is-usize
+      Translate size_t to usize.
+  --no-rustfmt-bindings
+      Do not format the generated bindings with rustfmt.
+  --rustfmt-bindings
+      Format the generated bindings with rustfmt. DEPRECATED: --rustfmt-bindings is now enabled by default. Disable with --no-rustfmt-bindings.
+  --rustfmt-configuration-file <String>
+      The absolute path to the rustfmt configuration file. The configuration file will be used for formatting the bindings. This parameter is incompatible with --no-rustfmt-bindings.
+  --no-partialeq <String>
+      Avoid deriving PartialEq for types matching <regex>.
+  --no-copy <String>
+      Avoid deriving Copy for types matching <regex>.
+  --no-debug <String>
+      Avoid deriving Debug for types matching <regex>.
+  --no-default <String>
+      Avoid deriving/implement Default for types matching <regex>.
+  --no-hash <String>
+      Avoid deriving Hash for types matching <regex>.
+  --must-use-type <String>
+      Add #[must_use] annotation to types matching <regex>.
+  --enable-function-attribute-detection
+      Enables detecting unexposed attributes in functions (slow).
+  --use-array-pointers-in-arguments
+      Use `*const [T; size]` instead of `*const T` for C arrays
+  --wasm-import-module-name <String>
+      The name to be used in a #[link(wasm_import_module = ...)] statement
+  --dynamic-loading <String>
+      Use dynamic loading mode with the given library name.
+  --dynamic-link-require-all
+      Require successful linkage to all functions in the library.
+  --respect-cxx-access-specs
+      Makes generated bindings `pub` only for items if the items are publically accessible in C++.
+  --translate-enum-integer-types
+      Always translate enum integer types to native Rust integer types.
+  --c-naming
+      Generate types with C style naming.
+  --explicit-padding
+      Always output explicit padding fields.
+  --vtable-generation
+      Enables generation of vtable functions.
+  --version
+      Prints the version, and exits
+
+Parameters:
+  (optional) header <String>: C or C++ header file
+  (optional) clang-args <String>: 
+
+
+

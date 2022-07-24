@@ -1,0 +1,33 @@
+---
+source: tests/crates.rs
+expression: get_clap_help(&mut app)
+---
+addr2line 0.1
+A fast addr2line Rust port
+
+USAGE:
+    addr2line [OPTIONS] --exe <filename> [addrs]...
+
+ARGS:
+    <addrs>...    Addresses to use instead of reading from stdin.
+
+OPTIONS:
+    -a, --addresses         Display the address before the function name, file and line number
+                            information.
+    -C, --demangle          Demangle function names. Specifying a specific demangling style (like
+                            GNU addr2line) is not supported. (TODO)
+    -e, --exe <filename>    Specify the name of the executable for which addresses should be
+                            translated.
+    -f, --functions         Display function names as well as file and line number information.
+    -h, --help              Print help information
+    -i, --inlines           If the address belongs to a function that was inlined, the source
+                            information for all enclosing scopes back to the first non-inlined
+                            function will also be printed.
+        --llvm              Display output in the same format as llvm-symbolizer.
+    -p, --pretty-print      Make the output more human friendly: each location are printed on one
+                            line.
+    -s, --basenames         Display only the base of each file name.
+        --sup <filename>    Path to supplementary object file.
+    -V, --version           Print version information
+
+

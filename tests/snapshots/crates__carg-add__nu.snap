@@ -1,0 +1,31 @@
+---
+source: tests/crates.rs
+expression: "clap_completions::nu::Completions::new(&app)"
+---
+# Add dependencies to a Cargo.toml manifest file
+export extern 'add' [
+  crates?: string # Reference to a package to add as a dependency
+  --help # Print help information
+  --version # Print version information
+  --no-default-features # Disable the default features
+  --default-features # Re-enable the default features
+  --features(-F): string # Space or comma separated list of features to activate
+  --optional # Mark the dependency as optional
+  --no-optional # Mark the dependency as required
+  --rename: string # Rename the dependency
+  --manifest-path: string # Path to Cargo.toml
+  --package(-p): string # Package to modify
+  --quiet(-q) # Do not print cargo log messages
+  --dry-run # Don't actually write the manifest
+  --path: string # Filesystem path to local crate to add
+  --git: string # Git repository location
+  --branch: string # Git branch to download the crate from
+  --tag: string # Git tag to download the crate from
+  --rev: string # Git reference to download the crate from
+  --registry: string # Package registry for this dependency
+  --dev # Add as development dependency
+  --build # Add as build dependency
+  --target: string # Add as dependency to the given target platform
+]
+
+

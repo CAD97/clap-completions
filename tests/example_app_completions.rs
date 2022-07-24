@@ -11,30 +11,17 @@ macro_rules! all_tests {
     };
 }
 
+mod shared;
+use shared::*;
+
 #[test]
 fn clap_help() {
-    use clap::Command;
-    use std::io::Write;
-
-    fn get_help(app: &mut Command) -> String {
-        let mut buf = Vec::new();
-
-        app.write_help(&mut buf).unwrap();
-        writeln!(buf).unwrap();
-
-        for app in app.get_subcommands_mut() {
-            writeln!(buf, "{}", get_help(app)).unwrap();
-        }
-
-        String::from_utf8(buf).unwrap()
-    }
-
     macro_rules! test {
         ($f:ident) => {
             &{
                 let mut app = $f("my-app");
                 app.build();
-                get_help(&mut app)
+                get_clap_help(&mut app)
             }
         };
     }
@@ -58,6 +45,21 @@ fn nu_completions() {
     }
 
     all_tests!("nu", test);
+
+    macro_rules! test {
+        ($f:ident) => {
+            &{
+                let mut app = $f("my-app");
+                app.build();
+                get_nu_help(&app)?
+            }
+        };
+    }
+
+    let _ = (|| -> Result<(), std::io::Error> {
+        all_tests!("nu/help", test);
+        Ok(())
+    })();
 }
 
 pub fn basic_command(name: &'static str) -> clap::Command<'static> {

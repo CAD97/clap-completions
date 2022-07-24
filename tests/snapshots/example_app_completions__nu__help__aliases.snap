@@ -1,0 +1,25 @@
+---
+source: tests/example_app_completions.rs
+expression: test!(aliases_command)
+---
+〉help  my-app
+testing bash completions
+
+Usage:
+  > my-app {flags} (positional) 
+
+Flags:
+  -h, --help
+      Print help information
+  -V, --version
+      Print version information
+  -f, --flag
+      cmd flag
+  -o, --option <String>
+      cmd option
+
+Parameters:
+  (optional) positional <String>: 
+
+
+

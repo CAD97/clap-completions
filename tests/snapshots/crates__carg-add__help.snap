@@ -1,0 +1,44 @@
+---
+source: tests/crates.rs
+expression: get_clap_help(&mut app)
+---
+add 
+Add dependencies to a Cargo.toml manifest file
+
+USAGE:
+    cargo add [OPTIONS] <DEP>[@<VERSION>] ...
+        cargo add [OPTIONS] --path <PATH> ...
+        cargo add [OPTIONS] --git <URL> ...
+
+ARGS:
+    <DEP_ID>...    Reference to a package to add as a dependency
+
+OPTIONS:
+        --no-default-features     Disable the default features
+        --default-features        Re-enable the default features
+    -F, --features <FEATURES>     Space or comma separated list of features to activate
+        --optional                Mark the dependency as optional
+        --no-optional             Mark the dependency as required
+        --rename <NAME>           Rename the dependency
+        --manifest-path <PATH>    Path to Cargo.toml
+    -p, --package <SPEC>          Package to modify
+    -q, --quiet                   Do not print cargo log messages
+        --dry-run                 Don't actually write the manifest
+    -h, --help                    Print help information
+
+SOURCE:
+        --path <PATH>        Filesystem path to local crate to add
+        --git <URI>          Git repository location
+        --branch <BRANCH>    Git branch to download the crate from
+        --tag <TAG>          Git tag to download the crate from
+        --rev <REV>          Git reference to download the crate from
+        --registry <NAME>    Package registry for this dependency
+
+SECTION:
+        --dev                Add as development dependency
+        --build              Add as build dependency
+        --target <TARGET>    Add as dependency to the given target platform
+
+Run `cargo help add` for more detailed information.
+
+
